@@ -37,7 +37,7 @@ public class ImmutableArrayList implements ImmutableList {
     }
 
     @Override
-    public ImmutableLinkedList addAll(int index, Object[] a) throws IndexOutOfBoundsException {
+    public ImmutableArrayList addAll(int index, Object[] a) throws IndexOutOfBoundsException {
         if (index > this.elements.length || index < 0) {
             throw new IndexOutOfBoundsException();
         }
