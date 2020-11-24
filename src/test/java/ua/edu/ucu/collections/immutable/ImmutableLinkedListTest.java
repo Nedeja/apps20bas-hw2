@@ -13,40 +13,9 @@ public class ImmutableLinkedListTest {
 
     @Test
     public void testToStringOneElem() {
-        ImmutableLinkedList a = new ImmutableLinkedList(1);
+        Object[] list = {1};
+        ImmutableLinkedList a = new ImmutableLinkedList(list);
         assertEquals("1", a.toString());
-    }
-
-    @Test
-    public void testAddFirstEmpty() {
-        ImmutableLinkedList a = new ImmutableLinkedList();
-        ImmutableLinkedList b = a.addFirst(1);
-        assertEquals("1", b.toString());
-        assertNotEquals(a.toString(), b.toString());
-    }
-
-    @Test
-    public void testAddFirstOneElem() {
-        ImmutableLinkedList a = new ImmutableLinkedList(2);
-        ImmutableLinkedList b = a.addFirst(1);
-        assertEquals("1, 2", b.toString());
-        assertNotEquals(a.toString(), b.toString());
-    }
-
-    @Test
-    public void testAddLastEmpty() {
-        ImmutableLinkedList a = new ImmutableLinkedList();
-        ImmutableLinkedList b = a.addLast(1);
-        assertEquals("1", b.toString());
-        assertNotEquals(a.toString(), b.toString());
-    }
-
-    @Test
-    public void testAddLastOneElem() {
-        ImmutableLinkedList a = new ImmutableLinkedList(1);
-        ImmutableLinkedList b = a.addLast(2);
-        assertEquals("1, 2", b.toString());
-        assertNotEquals(a.toString(), b.toString());
     }
 
     @Test
@@ -58,7 +27,8 @@ public class ImmutableLinkedListTest {
 
     @Test
     public void testGetFirstOneElem() {
-        ImmutableLinkedList a = new ImmutableLinkedList(1);
+        Object[] list = {1};
+        ImmutableLinkedList a = new ImmutableLinkedList(list);
         Object b = a.getFirst();
         assertEquals(1, b);
     }
@@ -79,7 +49,8 @@ public class ImmutableLinkedListTest {
 
     @Test
     public void testGetLastOneElem() {
-        ImmutableLinkedList a = new ImmutableLinkedList(1);
+        Object[] list = {1};
+        ImmutableLinkedList a = new ImmutableLinkedList(list);
         Object b = a.getLast();
         assertEquals(1, b);
     }
@@ -101,7 +72,8 @@ public class ImmutableLinkedListTest {
 
     @Test
     public void testAddOneElem() {
-        ImmutableLinkedList a = new ImmutableLinkedList(1);
+        Object[] list = {1};
+        ImmutableLinkedList a = new ImmutableLinkedList(list);
         ImmutableLinkedList b = a.add(2);
         assertEquals("1, 2", b.toString());
         assertNotEquals(a.toString(), b.toString());
@@ -117,7 +89,8 @@ public class ImmutableLinkedListTest {
 
     @Test
     public void testAddIndexOneElementFirst() {
-        ImmutableLinkedList a = new ImmutableLinkedList(2);
+        Object[] list = {2};
+        ImmutableLinkedList a = new ImmutableLinkedList(list);
         ImmutableLinkedList b = a.add(0, 1);
         assertEquals("1, 2", b.toString());
         assertNotEquals(a.toString(), b.toString());
@@ -125,7 +98,8 @@ public class ImmutableLinkedListTest {
 
     @Test
     public void testAddIndexOneElementLast() {
-        ImmutableLinkedList a = new ImmutableLinkedList(1);
+        Object[] list = {1};
+        ImmutableLinkedList a = new ImmutableLinkedList(list);
         ImmutableLinkedList b = a.add(1, 2);
         assertEquals("1, 2", b.toString());
         assertNotEquals(a.toString(), b.toString());
@@ -133,7 +107,8 @@ public class ImmutableLinkedListTest {
 
     @Test
     public void testAddIndexBetween() {
-        ImmutableLinkedList a = new ImmutableLinkedList(1);
+        Object[] list = {1};
+        ImmutableLinkedList a = new ImmutableLinkedList(list);
         ImmutableLinkedList b = a.add(3);
         ImmutableLinkedList c = b.add(1,2);
         assertEquals("1, 2, 3", c.toString());
@@ -142,7 +117,8 @@ public class ImmutableLinkedListTest {
 
     @Test(expected = IndexOutOfBoundsException.class)
     public void testAddIndexException() {
-        ImmutableLinkedList a = new ImmutableLinkedList(1);
+        Object[] list = {1};
+        ImmutableLinkedList a = new ImmutableLinkedList(list);
         ImmutableLinkedList b = a.add(3);
         ImmutableLinkedList c = b.add(100,2);
     }
@@ -157,7 +133,8 @@ public class ImmutableLinkedListTest {
 
     @Test
     public void testAddAllOneElem() {
-        ImmutableLinkedList a = new ImmutableLinkedList(1);
+        Object[] list = {1};
+        ImmutableLinkedList a = new ImmutableLinkedList(list);
         ImmutableLinkedList b = a.addAll(new Object[] {2,3,4});
         assertEquals("1, 2, 3, 4", b.toString());
         assertNotEquals(a.toString(), b.toString());
@@ -165,7 +142,8 @@ public class ImmutableLinkedListTest {
 
     @Test(expected = IndexOutOfBoundsException.class)
     public void testAddAllIndexException() {
-        ImmutableLinkedList a = new ImmutableLinkedList(1);
+        Object[] list = {1};
+        ImmutableLinkedList a = new ImmutableLinkedList(list);
         ImmutableLinkedList b = a.addAll(100, new Object[] {2,3,4});
     }
 
@@ -179,7 +157,8 @@ public class ImmutableLinkedListTest {
 
     @Test
     public void testAddAllIndexLast() {
-        ImmutableLinkedList a = new ImmutableLinkedList(1);
+        Object[] list = {1};
+        ImmutableLinkedList a = new ImmutableLinkedList(list);
         ImmutableLinkedList b = a.addAll(1, new Object[] {2,3,4});
         assertEquals("1, 2, 3, 4", b.toString());
         assertNotEquals(a.toString(), b.toString());
@@ -203,7 +182,8 @@ public class ImmutableLinkedListTest {
 
     @Test(expected = IndexOutOfBoundsException.class)
     public void testGetException() {
-        ImmutableLinkedList a = new ImmutableLinkedList(1);
+        Object[] list = {1};
+        ImmutableLinkedList a = new ImmutableLinkedList(list);
         Object b = a.get(100);
     }
 
@@ -216,13 +196,15 @@ public class ImmutableLinkedListTest {
 
     @Test(expected = IndexOutOfBoundsException.class)
     public void testRemoveException() {
-        ImmutableLinkedList a = new ImmutableLinkedList(1);
+        Object[] list = {1};
+        ImmutableLinkedList a = new ImmutableLinkedList(list);
         Object b = a.remove(100);
     }
 
     @Test(expected = IndexOutOfBoundsException.class)
     public void testRemoveExceptionMinusOne() {
-        ImmutableLinkedList a = new ImmutableLinkedList(1);
+        Object[] list = {1};
+        ImmutableLinkedList a = new ImmutableLinkedList(list);
         Object b = a.remove(-1);
     }
 
@@ -234,24 +216,10 @@ public class ImmutableLinkedListTest {
     }
 
     @Test
-    public void testRemoveFirstEmpty() {
-        ImmutableLinkedList a = new ImmutableLinkedList();
-        ImmutableLinkedList b = a.removeFirst();
-        assertEquals("", b.toString());
-    }
-
-    @Test
     public void testRemoveLast() {
         ImmutableLinkedList a = new ImmutableLinkedList().addAll(new Object[] {1,2,3,4,5,6});
         ImmutableLinkedList b = a.remove(5);
         assertEquals("1, 2, 3, 4, 5", b.toString());
-    }
-
-    @Test
-    public void testRemoveLastEmpty() {
-        ImmutableLinkedList a = new ImmutableLinkedList();
-        ImmutableLinkedList b = a.removeLast();
-        assertEquals("", b.toString());
     }
 
     @Test
@@ -263,7 +231,8 @@ public class ImmutableLinkedListTest {
 
     @Test(expected = IndexOutOfBoundsException.class)
     public void testSetException() {
-        ImmutableLinkedList a = new ImmutableLinkedList(1);
+        Object[] list = {1};
+        ImmutableLinkedList a = new ImmutableLinkedList(list);
         Object b = a.set(100, 1);
     }
 
@@ -290,7 +259,8 @@ public class ImmutableLinkedListTest {
 
     @Test
     public void testIndexOfElemNotInList() {
-        ImmutableLinkedList a = new ImmutableLinkedList(1);
+        Object[] list = {1};
+        ImmutableLinkedList a = new ImmutableLinkedList(list);
         int b = a.indexOf(100);
         assertEquals(-1, b);
     }
