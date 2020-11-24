@@ -15,11 +15,11 @@ public class Queue {
 
     public Object dequeue() {
         Object element = this.lst.getFirst();
-        this.lst = this.lst.removeFirst();
+        this.lst = this.lst.remove(0);
         return element;
     }
 
     public void enqueue(Object element) {
-        lst = lst.addLast(element);
+        lst = lst.add(element);
     }
 }
