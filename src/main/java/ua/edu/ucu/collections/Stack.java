@@ -15,12 +15,12 @@ public class Stack {
 
     public Object pop() {
         Object element = this.lst.getFirst();
-        this.lst = this.lst.removeFirst();
+        this.lst = this.lst.remove(0);
         return element;
     }
 
     public void push(Object element) {
-        this.lst = this.lst.addFirst(element);
+        this.lst = this.lst.add(0, element);
     }
 }
 
