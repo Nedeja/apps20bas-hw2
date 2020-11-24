@@ -67,13 +67,15 @@ public class ImmutableLinkedList implements ImmutableList {
         newList[this.size] = a;
         Object[] currentList = this.toArray();
         if (this.isEmpty() == false) {
-            System.arraycopy(currentList, 0, newList, 0, this.size);
+            System.arraycopy(currentList, 0, newList,
+                    0, this.size);
         }
         return new ImmutableLinkedList(newList);
     }
 
     @Override
-    public ImmutableLinkedList add(int index, Object elem) throws IndexOutOfBoundsException {
+    public ImmutableLinkedList add(int index, Object elem)
+            throws IndexOutOfBoundsException {
         return addAll(index, new Object[] {elem});
     }
 
@@ -92,15 +94,18 @@ public class ImmutableLinkedList implements ImmutableList {
         }
         Object[] newList = new Object[this.size + a.length];
         Object[] currentList = this.toArray();
-        System.arraycopy(currentList, 0, newList, 0, index);
-        System.arraycopy(currentList, index, newList, index + a.length,
+        System.arraycopy(currentList, 0, newList,
+                0, index);
+        System.arraycopy(currentList, index, newList,
+                index + a.length,
                 this.size - index);
         System.arraycopy(a, 0, newList, index, a.length);
         return new ImmutableLinkedList(newList);
     }
 
     @Override
-    public Object get(int index) throws IndexOutOfBoundsException {
+    public Object get(int index)
+            throws IndexOutOfBoundsException {
         if ((index >= size) || (index < 0)) {
             throw new IndexOutOfBoundsException();
         }
@@ -127,20 +132,24 @@ public class ImmutableLinkedList implements ImmutableList {
     }
 
     @Override
-    public ImmutableLinkedList remove(int index) throws IndexOutOfBoundsException {
+    public ImmutableLinkedList remove(int index)
+            throws IndexOutOfBoundsException {
         if ((index >= size) || (index < 0)) {
             throw new IndexOutOfBoundsException();
         }
         Object[] newList = new Object[this.size - 1];
         Object[] currentList = this.toArray();
-        System.arraycopy(currentList, 0, newList, 0, index);
-        System.arraycopy(currentList, index + 1, newList, index,
+        System.arraycopy(currentList, 0, newList,
+                0, index);
+        System.arraycopy(currentList, index + 1,
+                newList, index,
                 this.size - 1 - index);
         return new ImmutableLinkedList(newList);
     }
 
     @Override
-    public ImmutableLinkedList set(int index, Object a) throws IndexOutOfBoundsException {
+    public ImmutableLinkedList set(int index, Object a)
+            throws IndexOutOfBoundsException {
         if ((index >= size) || (index < 0)) {
             throw new IndexOutOfBoundsException();
         }
